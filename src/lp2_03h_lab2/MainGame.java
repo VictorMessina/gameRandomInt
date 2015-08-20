@@ -25,7 +25,7 @@ public class MainGame {
         if(!file.exists()) {
             try {
                 file.createNewFile();
-                gamer = new Gamer(name,0,0,0);
+                gamer = new Gamer(name,0,0);
             } catch (IOException ex) {
                 Logger.getLogger(MainGame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -33,6 +33,7 @@ public class MainGame {
             //Lê o objeto Gamer serializado
             gamer = IOManager.readGamer(file);
         }
+        gamer.setCurrent_score(0);
         
         //Apresenta os dados do jogador
         System.out.println("---------------");
